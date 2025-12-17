@@ -1,0 +1,13 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  nginx-static:
+    build:
+      context: . # Контекст сборки - корень проекта
+      dockerfile: deploy/Dockerfile # Путь к Dockerfile Nginx
+    container_name: static_nginx_container
+    restart: always
+    ports:
+      # Мапим внешний порт 3100 на внутренний порт Nginx 80
+      - "3100:80"
